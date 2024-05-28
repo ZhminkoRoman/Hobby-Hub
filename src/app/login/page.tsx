@@ -1,11 +1,47 @@
 export default function LoginPage() {
+  async function signIn(formData: FormData) {
+    "use server";
+
+    const rawFormData = {
+      login: formData.get("login"),
+      password: formData.get("password"),
+    };
+  }
+
   return (
-    <main className="flex items-center justify-center md:h-screen">
-      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4 md:-mt-32">
-        <div className="flex h-20 w-full items-end rounded-lg bg-blue-500 p-3 md:h-36">
-          <div className="w-32 text-white md:w-36">{/* <AcmeLogo /> */}</div>
+    <main className="w-full h-full font-mono">
+      <form
+        action={signIn}
+        className="w-80 flex flex-col h-full mx-auto justify-center gap-3"
+      >
+        <div className="flex flex-row">
+          <label htmlFor="login" className="sign-label">
+            Login
+          </label>
+          <input
+            type="text"
+            name="login"
+            id="login"
+            required
+            className="sign-input"
+          />
         </div>
-      </div>
+        <div className="flex flex-row">
+          <label htmlFor="password" className="sign-label">
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+            className="sign-input"
+          />
+        </div>
+        <button type="submit" className="btn">
+          Sign In
+        </button>
+      </form>
     </main>
   );
 }

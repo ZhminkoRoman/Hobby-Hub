@@ -1,9 +1,16 @@
 "use client";
 
-export default function ErrorPage() {
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
   return (
-    <main>
-      <p>Error!</p>
-    </main>
+    <div>
+      <h2>Something went wrong!</h2>
+      <button onClick={() => reset()}>Try again</button>
+    </div>
   );
 }
