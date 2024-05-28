@@ -9,10 +9,10 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="w-full h-full font-mono">
+    <main className="w-full h-full font-mono flex flex-col justify-center">
       <form
         action={signIn}
-        className="w-80 flex flex-col h-full mx-auto justify-center gap-3"
+        className="w-80 flex flex-col mx-auto justify-center gap-3"
       >
         <div className="flex flex-row">
           <label htmlFor="login" className="sign-label">
