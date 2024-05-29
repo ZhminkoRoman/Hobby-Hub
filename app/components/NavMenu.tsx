@@ -13,9 +13,6 @@ export default function NavMenu() {
         <Link href="/" className="nav-button">
           <li>Home</li>
         </Link>
-        <Link href="/protected" className="nav-button">
-          <li>Protected Route</li>
-        </Link>
         <Link href="/dashboard" className="nav-button">
           <li>Dashboard</li>
         </Link>
