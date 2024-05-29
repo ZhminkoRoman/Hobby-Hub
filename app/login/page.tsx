@@ -1,27 +1,37 @@
-export default function LoginPage() {
-  async function signIn(formData: FormData) {
+import { auth, signIn } from "@/auth";
+import { SignIn } from "../components/SignIn";
+import { redirect } from "next/navigation";
+
+export default async function LoginPage() {
+  async function signInForm(formData: FormData) {
     "use server";
 
     const rawFormData = {
-      login: formData.get("login"),
+      login: formData.get("email"),
       password: formData.get("password"),
     };
+
+    await signIn("credentials", formData);
   }
 
+  const session = await auth();
+
+  if (session?.user) redirect("/");
+
   return (
-    <main className="w-full h-full font-mono flex flex-col justify-center">
+    <main className="w-full h-full font-mono flex flex-col justify-center gap-3">
       <form
-        action={signIn}
+        action={signInForm}
         className="w-80 flex flex-col mx-auto justify-center gap-3"
       >
         <div className="flex flex-row">
-          <label htmlFor="login" className="sign-label">
-            Login
+          <label htmlFor="email" className="sign-label">
+            Email
           </label>
           <input
-            type="text"
-            name="login"
-            id="login"
+            type="email"
+            name="email"
+            id="email"
             required
             className="sign-input"
           />
@@ -42,6 +52,7 @@ export default function LoginPage() {
           Sign In
         </button>
       </form>
+      <SignIn />
     </main>
   );
 }

@@ -1,7 +1,15 @@
+import { auth } from "@/auth";
+
 export default async function Home() {
+  const session = await auth();
+
   return (
     <>
-      <div>Not logged in</div>
+      {session?.user ? (
+        <p>{session.user.name}</p>
+      ) : (
+        <p>You are not logged in</p>
+      )}
     </>
   );
 }

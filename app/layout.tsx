@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavMenu from "./components/NavMenu";
+import { auth } from "@/auth";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,13 +17,17 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="p-6 w-screen text-base flex flex-col gap-2 h-screen font-mono">
-          <NavMenu />
-          {children}
-        </main>
+        <SessionProvider session={session}>
+          <main className="p-6 w-screen text-base flex flex-col gap-2 h-screen font-mono">
+            <NavMenu />
+            {children}
+          </main>
+        </SessionProvider>
       </body>
     </html>
   );
