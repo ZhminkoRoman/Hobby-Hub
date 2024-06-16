@@ -7,15 +7,17 @@ export default async function LoginPage() {
     "use server";
 
     const rawFormData = {
-      login: formData.get("email"),
+      redirect: false,
+      email: formData.get("email"),
       password: formData.get("password"),
     };
 
-    await signIn("credentials", formData);
+    await signIn("credentials", rawFormData);
   }
 
   const session = await auth();
 
+  console.log("SESSION: -", session);
   if (session?.user) redirect("/");
 
   return (
