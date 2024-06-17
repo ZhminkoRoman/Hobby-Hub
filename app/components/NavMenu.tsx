@@ -10,6 +10,8 @@ export default function NavMenu() {
 
   if (pathname === "/login") return null;
 
+  console.log("ses", session);
+
   return (
     <div className="mb-8 w-full flex justify-between">
       <ul className="flex gap-8">

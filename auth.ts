@@ -2,16 +2,17 @@ import NextAuth from "next-auth";
 import { ZodError } from "zod";
 import { signInSchema } from "./lib/zod";
 import CredentialsProvider from "next-auth/providers/credentials";
-import Google from "next-auth/providers/google";
-import GitHub from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
+import GitHubProvider from "next-auth/providers/github";
 import { SupabaseAdapter } from "@auth/supabase-adapter";
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import { createClient } from "@supabase/supabase-js";
+// import jwt from 'jsonwebtoken';
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
-  process.env.SUPABASE_ANON_KEY!
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -59,8 +60,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         }
       },
     }),
-    GitHub,
-    Google,
+    GoogleProvider({
+      clientId: process.env.AUTH_GOOGLE_ID!,
+      clientSecret: process.env.AUTH_GOOGLE_SECRET!,
+    }),
+    GitHubProvider({
+      clientId: process.env.AUTH_GITHUB_ID!,
+      clientSecret: process.env.AUTH_GITHUB_SECRET!,
+    }),
   ],
   adapter: SupabaseAdapter({
     url: process.env.SUPABASE_URL!,

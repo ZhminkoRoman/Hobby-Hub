@@ -12,7 +12,15 @@ export default async function LoginPage() {
       password: formData.get("password"),
     };
 
-    await signIn("credentials", rawFormData);
+    const result = await signIn("credentials", rawFormData);
+
+    if (result) {
+      console.log(result);
+
+      redirect("/");
+    } else {
+      throw new Error("There is no such user");
+    }
   }
 
   const session = await auth();
