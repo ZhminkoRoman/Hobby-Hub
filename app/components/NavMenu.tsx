@@ -1,16 +1,13 @@
 "use client";
-import { signOut, useSession } from "next-auth/react";
+import { signOut, useSession, getSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 export default function NavMenu() {
   const pathname = usePathname();
 
   const session = useSession();
-
-  if (pathname === "/login") return null;
-
-  console.log("ses", session);
 
   return (
     <div className="mb-8 w-full flex justify-between">

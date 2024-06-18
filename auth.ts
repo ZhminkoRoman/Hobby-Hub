@@ -1,14 +1,11 @@
 import NextAuth from "next-auth";
 import { ZodError } from "zod";
-import { signInSchema } from "./lib/zod";
+import { signInSchema, signUpSchema } from "./lib/zod";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import { SupabaseAdapter } from "@auth/supabase-adapter";
-import { createServerClient, type CookieOptions } from "@supabase/ssr";
-import { cookies } from "next/headers";
 import { createClient } from "@supabase/supabase-js";
-// import jwt from 'jsonwebtoken';
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
@@ -25,20 +22,25 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       async authorize(credentials) {
         try {
-          const { email, password } = await signInSchema.parseAsync(
+          const { email, password } = await signUpSchema.parseAsync(
             credentials
           );
 
-          console.log("CREDENTIALS: -", credentials);
-
           const pwHash = "";
 
-          const { data, error } = await supabase.auth.signInWithPassword({
+          const { data, error } = await supabase.auth.signUp({
             email: email,
             password: password,
           });
 
-          console.log("DATA: -", data);
+          console.log(
+            "ERR",
+            error?.cause,
+            error?.name,
+            error?.status,
+            error?.message
+          );
+          console.log("DATA", data);
 
           if (!data.user) {
             // No user found, so this is their first attempt to login
@@ -46,15 +48,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             throw new Error(error?.message);
           }
 
-          console.log("USER: -", data.user);
-
-          return { id: data.user.id, email: data.user.email };
+          return data.user;
         } catch (error) {
+          console.log("ERROR", error);
           if (error instanceof ZodError) {
             // Return `null` to indicate that the credentials are invalid
             throw new Error(error.message);
           }
-          console.log("EEEEEEEEEE", error);
 
           return null;
         }
@@ -77,17 +77,25 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: "/login",
   },
   callbacks: {
-    async session({ session, token }) {
-      if (token) {
-        session.user = token.user;
+    async signIn({ user, account, profile, email, credentials }) {
+      if (user) {
+        return true;
+      } else {
+        return false;
       }
-      return session;
+    },
+    async redirect({ url, baseUrl }) {
+      return url.startsWith(baseUrl) ? url : baseUrl;
     },
     async jwt({ token, user }) {
       if (user) {
-        token.user = { id: user.id, email: user.email, name: user.name };
+        token.user = user;
       }
       return token;
+    },
+    async session({ session, token, user }) {
+      session.user = token.user;
+      return session;
     },
   },
   session: {
