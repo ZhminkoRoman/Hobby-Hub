@@ -7,10 +7,10 @@ export default async function RegistrationPage() {
     "use server";
 
     const rawFormData = {
-      redirectTo: "/login",
+      redirectTo: "http://localhost:3000/login",
       email: formData.get("email"),
       password: formData.get("password"),
-      repeatPassword: formData.get("password"),
+      repeatPassword: formData.get("repeatPassword"),
     };
 
     await signIn("credentials", rawFormData);
@@ -18,7 +18,7 @@ export default async function RegistrationPage() {
 
   return (
     <main className="w-full h-full font-mono flex flex-col justify-center gap-3">
-      <form className="w-80 flex flex-col mx-auto justify-center gap-3">
+      <form className="w-96 flex flex-col mx-auto justify-center gap-3">
         <div className="flex flex-row">
           <label htmlFor="email" className="sign-label">
             Email
@@ -44,7 +44,7 @@ export default async function RegistrationPage() {
           />
         </div>
         <div className="flex flex-row">
-          <label htmlFor="repeatPassword" className="sign-label">
+          <label htmlFor="repeatPassword" className="sign-label w-80">
             Repeat password
           </label>
           <input

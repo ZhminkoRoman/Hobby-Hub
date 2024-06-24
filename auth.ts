@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { User } from "next-auth";
 import { ZodError } from "zod";
 import { signInSchema, signUpSchema } from "./lib/zod";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -6,6 +6,7 @@ import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import { SupabaseAdapter } from "@auth/supabase-adapter";
 import { createClient } from "@supabase/supabase-js";
+import { AdapterUser } from "next-auth/adapters";
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
@@ -22,25 +23,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       async authorize(credentials) {
         try {
-          const { email, password } = await signUpSchema.parseAsync(
-            credentials
-          );
+          const result = await signInSchema.safeParseAsync(credentials);
+
+          // console.log("RESULT VALID", result);
 
           const pwHash = "";
 
-          const { data, error } = await supabase.auth.signUp({
-            email: email,
-            password: password,
+          const { data, error } = await supabase.auth.signInWithPassword({
+            email: result?.data?.email || "",
+            password: result?.data?.password || "",
           });
-
-          console.log(
-            "ERR",
-            error?.cause,
-            error?.name,
-            error?.status,
-            error?.message
-          );
-          console.log("DATA", data);
 
           if (!data.user) {
             // No user found, so this is their first attempt to login
@@ -50,7 +42,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
           return data.user;
         } catch (error) {
-          console.log("ERROR", error);
           if (error instanceof ZodError) {
             // Return `null` to indicate that the credentials are invalid
             throw new Error(error.message);
@@ -74,7 +65,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     secret: process.env.SUPABASE_SERVICE_ROLE_KEY!,
   }),
   pages: {
-    signIn: "/login",
+    signIn: "/auth/login",
+    error: "/auth/error",
   },
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
@@ -94,7 +86,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return token;
     },
     async session({ session, token, user }) {
-      session.user = token.user;
+      session.user = token.user as AdapterUser;
       return session;
     },
   },

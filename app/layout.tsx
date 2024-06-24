@@ -17,17 +17,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
-
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider session={session}>
-          <main className="p-6 w-screen text-base flex flex-col gap-2 h-screen font-mono">
-            <NavMenu />
-            {children}
-          </main>
-        </SessionProvider>
+        <main className="p-6 w-screen text-base flex flex-col gap-2 h-screen font-mono">
+          {children}
+        </main>
       </body>
     </html>
   );

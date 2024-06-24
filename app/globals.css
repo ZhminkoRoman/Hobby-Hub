@@ -43,11 +43,11 @@ select:-webkit-autofill {
   }
 
   .sign-label {
-    @apply p-2 w-min;
+    @apply p-2 w-full;
   }
 
   .sign-input {
-    @apply w-full px-4 border-gray-900 border-2 rounded font-mono;
+    @apply w-60 px-4 border-gray-900 border-2 rounded font-mono;
     @apply autofill:shadow-[inset_0_0_0px_1000px_#f3f4f6];
   }
 
