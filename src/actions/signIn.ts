@@ -1,6 +1,6 @@
 "use server";
 
-// import { signIn } from "@/auth";
+import { signIn } from "@/auth";
 
 type SignInFormValues = {
   email: FormDataEntryValue | null;
@@ -29,5 +29,5 @@ export async function signInWithProvider(
     redirectTo: "http://localhost:3000/dashboard",
   };
 
-  // await signIn(provider, rawFormData);
+  await signIn(provider, rawFormData);
 }

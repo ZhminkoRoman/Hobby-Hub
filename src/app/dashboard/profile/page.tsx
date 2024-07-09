@@ -6,7 +6,7 @@ export default async function Profile() {
 
   return (
     <main>
-      <p>This is a profile page</p>
+      <h2 className="page-title">This is a profile page</h2>
       {/* <p>{session?.user?.name}</p>
       <p>{session?.user?.email}</p>
       {session?.user?.image ? (

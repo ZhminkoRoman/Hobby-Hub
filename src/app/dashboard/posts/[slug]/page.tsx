@@ -26,7 +26,7 @@ export default async function PostPage({
 
   return (
     <main>
-      <p>This is a Post page</p>
+      <h2 className="page-title">This is a Post page</h2>
 
       <h3>{post?.title}</h3>
       <p>{post?.content}</p>
