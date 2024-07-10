@@ -3,7 +3,7 @@
 import { signInForm } from "@/src/actions/signIn";
 import SignInButton from "@/src/components/SignInButton";
 import Link from "next/link";
-import { useActionState, useState } from "react";
+import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";
 import { signIn } from "@/auth";
 
@@ -11,17 +11,6 @@ export default function LoginPage() {
   const searchParams = useSearchParams();
   const searchError = searchParams.get("error");
   const [error, action, isPending] = useActionState(signInForm, null);
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
 
   return (
     <main className="w-full h-full font-mono flex flex-col justify-center gap-3">
@@ -37,8 +26,7 @@ export default function LoginPage() {
               id="email"
               required
               className="input-field"
-              value={email}
-              onChange={handleEmailChange}
+              placeholder="enter your email"
             />
           </div>
         </div>
@@ -55,15 +43,17 @@ export default function LoginPage() {
           />
         </div> */}
         <SignInButton title="Sign In" provider="credentials" />
-        {/* <hr className="divider" /> */}
-        <SignInButton title="Google" provider="google" subclass="google" />
-        <SignInButton title="GitHub" provider="github" subclass="github" />
         {error ? <p>{error}</p> : null}
         {searchError ? <p>{searchError}</p> : null}
       </form>
-      <Link href="/auth/registration" className="link mx-auto">
+      <span className="divider">OR</span>
+      <form className="w-80 flex flex-col mx-auto justify-center gap-3">
+        <SignInButton title="Google" provider="google" subclass="google" />
+        <SignInButton title="GitHub" provider="github" subclass="github" />
+      </form>
+      {/* <Link href="/auth/registration" className="link mx-auto">
         or Sign Up
-      </Link>
+      </Link> */}
     </main>
   );
 }

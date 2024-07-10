@@ -29,20 +29,24 @@ export default async function PostsPage() {
 
       <form
         action={createPost}
-        className="flex flex-col w-[36rem] mx-auto bg-gray-700 p-8"
+        className="flex flex-col w-[36rem] mx-auto gap-3"
       >
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          className="post-input"
-        />
-        <textarea
-          name="content"
-          placeholder="Content"
-          rows={5}
-          className="post-input"
-        />
+        <div className="input-field-border">
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            className="input-field"
+          />
+        </div>
+        <div className="input-field-border">
+          <textarea
+            name="content"
+            placeholder="Content"
+            rows={5}
+            className="input-field"
+          />
+        </div>
         <button type="submit" className="btn">
           Create post
         </button>

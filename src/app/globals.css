@@ -25,8 +25,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   /* background: rgb(var(--background-start-rgb)); */
-  height: 100vh;
-  @apply font-mono bg-[#111111] tracking-tighter;
+  @apply font-mono bg-[#141414] tracking-tighter;
 }
 
 input:-webkit-autofill,
@@ -153,10 +152,56 @@ select:-webkit-autofill {
   }
 
   .divider {
-    @apply relative my-4 mx-10 border-[1px] border;
+    @apply relative my-4 mx-10 text-center;
   }
 
-  .divider::after {
-    @apply absolute content-['or'];
+  .active-page {
+    @apply block p-4 outline-none;
+    /* box-shadow: inset 0 1px 2px 0 #000; */
+    /* text-shadow: 0 0 1em #ececed; */
+  }
+
+  .regular-page {
+    @apply block p-4 outline-none transition-all ease-in-out duration-300;
+    /* box-shadow: inset 0 1px 2px 0 #000; */
+  }
+
+  .regular-page:hover,
+  .regular-page:focus {
+    @apply text-[#05d9e8];
+  }
+
+  .screen {
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7);
+    @apply: relative bg-[#111];
+  }
+
+  .screen-overlay {
+    @apply h-full w-full p-6 rounded;
+    background: linear-gradient(
+        0deg,
+        transparent 95%,
+        rgba(255, 255, 255, 0.3) 100%
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 1px,
+        rgba(0, 0, 0, 0.1) 2px
+      );
+    opacity: 0.2;
+    filter: contrast(200%) brightness(50%) grayscale(100%);
+    animation: staticEffect 0.2s steps(10) infinite;
+  }
+
+  @keyframes staticEffect {
+    0% {
+      opacity: 0.2;
+      filter: contrast(200%) brightness(50%) grayscale(100%);
+    }
+    100% {
+      opacity: 0.3;
+      filter: contrast(200%) brightness(60%) grayscale(100%);
+    }
   }
 }

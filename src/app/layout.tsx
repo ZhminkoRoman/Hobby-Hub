@@ -21,8 +21,8 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${myFont.variable} min-h-screen`}>
-        <main className="p-6 w-screen text-base flex flex-col gap-2 h-screen font-mono main-wrapper">
+      <body className={`${myFont.variable} h-screen w-screen `}>
+        <main className="p-6 w-full text-base flex flex-col gap-2 h-full font-mono main-wrapper">
           {children}
         </main>
       </body>

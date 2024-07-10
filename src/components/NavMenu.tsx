@@ -3,6 +3,7 @@
 import Link from "next/link";
 import SignButton from "./SignButton";
 import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 const navLinks = [
   {
@@ -13,25 +14,34 @@ const navLinks = [
     href: "/dashboard/posts",
     label: "Posts",
   },
-  {
-    href: "/dashboard/profile",
-    label: "Profile",
-  },
 ];
 
 export default async function NavMenu() {
   const pathname = usePathname();
+  console.log(pathname);
 
   return (
-    <div className="mb-8 w-full flex justify-between bg-gray-700">
-      <ul className="flex gap-8">
+    <div className="w-full flex justify-between ">
+      <ul className="flex gap-2 ">
         {navLinks.map((link) => (
-          <li>
-            <Link href={link.href}>{link.label}</Link>
+          <li key={link.href}>
+            <Link href={link.href} className={`${"regular-page"}`}>
+              {link.label}
+            </Link>
           </li>
         ))}
       </ul>
-      <button> Logout </button>
+      <div className="flex flex-row">
+        <div>
+          <Link className={`${"regular-page"}`} href="/dashboard/profile">
+            Profile
+          </Link>
+        </div>
+        <button onClick={() => signOut()} className="px-4">
+          {" "}
+          Logout{" "}
+        </button>
+      </div>
     </div>
   );
 }
