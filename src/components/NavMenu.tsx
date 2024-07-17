@@ -33,7 +33,7 @@ export default async function NavMenu() {
       </ul>
       <div className="flex flex-row">
         <div>
-          <Link className={`${"regular-page"}`} href="/dashboard/profile">
+          <Link className={`${"regular-page"}`} href="/profile">
             Profile
           </Link>
         </div>
