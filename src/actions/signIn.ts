@@ -13,7 +13,7 @@ type RawFormDataType = Partial<SignInFormValues> & {
 
 export async function signInForm(previousState: unknown, formData: FormData) {
   const rawFormData: RawFormDataType = {
-    redirectTo: "http://localhost:3000/dashboard",
+    redirectTo: "http://localhost:3000/",
     email: formData.get("email"),
     password: formData.get("password"),
   };
@@ -26,7 +26,7 @@ export async function signInWithProvider(
   provider: string
 ) {
   const rawFormData = {
-    redirectTo: "http://localhost:3000/dashboard",
+    redirectTo: "http://localhost:3000/",
   };
 
   await signIn(provider, rawFormData);

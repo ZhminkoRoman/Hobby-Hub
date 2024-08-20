@@ -24,7 +24,7 @@ export async function createPost(formData: FormData) {
     console.log(error);
   }
 
-  revalidatePath("/dashboard");
+  revalidatePath("/");
 }
 
 export async function editPost(formData: FormData, id: string) {
@@ -41,7 +41,7 @@ export async function editPost(formData: FormData, id: string) {
     },
   });
 
-  revalidatePath("/dashboard");
+  revalidatePath("/");
 }
 
 export async function deletePost(id: string) {
@@ -51,5 +51,5 @@ export async function deletePost(id: string) {
     },
   });
 
-  revalidatePath("/dashboard");
+  revalidatePath("/");
 }

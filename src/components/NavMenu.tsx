@@ -7,11 +7,11 @@ import { signOut } from "next-auth/react";
 
 const navLinks = [
   {
-    href: "/dashboard",
+    href: "/",
     label: "Dashboard",
   },
   {
-    href: "/dashboard/posts",
+    href: "/posts",
     label: "Posts",
   },
 ];

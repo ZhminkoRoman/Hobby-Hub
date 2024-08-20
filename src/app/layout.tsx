@@ -20,7 +20,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${myFont.variable} h-screen w-screen `}>
         <main className="p-6 w-full text-base flex flex-col gap-2 h-full font-mono main-wrapper">
           {children}

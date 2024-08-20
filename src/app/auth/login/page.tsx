@@ -13,8 +13,8 @@ export default function LoginPage() {
   const [error, action, isPending] = useActionState(signInForm, null);
 
   return (
-    <main className="w-full h-full font-mono flex flex-col justify-center gap-3">
-      <form className="w-80 flex flex-col mx-auto justify-center gap-3">
+    <>
+      <form className="w-80 flex flex-col mx-auto justify-center gap-3 z-10">
         <div className="input-wrapper">
           <label htmlFor="email" className="input-label">
             Email:
@@ -46,14 +46,14 @@ export default function LoginPage() {
         {error ? <p>{error}</p> : null}
         {searchError ? <p>{searchError}</p> : null}
       </form>
-      <span className="divider">OR</span>
-      <form className="w-80 flex flex-col mx-auto justify-center gap-3">
+      <span className="divider z-10">OR</span>
+      <form className="w-80 flex flex-col mx-auto justify-center gap-3 z-10">
         <SignInButton title="Google" provider="google" subclass="google" />
         <SignInButton title="GitHub" provider="github" subclass="github" />
       </form>
       {/* <Link href="/auth/registration" className="link mx-auto">
         or Sign Up
       </Link> */}
-    </main>
+    </>
   );
 }

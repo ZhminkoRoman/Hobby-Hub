@@ -17,9 +17,20 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      fontFamily: {
-        mono: ["var(--font-jet-brains-mono)"],
-      },
+      // colors: {
+      //   // Определите свои темы здесь
+      //   day: {
+      //     background: "#ffffff",
+      //     text: "#000000",
+      //   },
+      //   night: {
+      //     background: "#000000",
+      //     text: "#ffffff",
+      //   },
+      // },
+    },
+    fontFamily: {
+      mono: ["var(--font-jet-brains-mono)"],
     },
   },
   // variants: {
