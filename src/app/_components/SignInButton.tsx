@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import Image from "next/image";
-import { signInWithProvider } from "../actions/signIn";
+import { signInWithProvider } from "../../actions/signIn";
 
 interface SignInProps {
   title: string;

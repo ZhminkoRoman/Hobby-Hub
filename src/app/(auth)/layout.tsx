@@ -1,4 +1,4 @@
-import AuthAnimatedLayout from "@/src/components/AuthAnimatedLayout";
+import AuthAnimatedLayout from "@/src/app/_components/AuthAnimatedLayout";
 
 export default function DashboardLayout({
   children,

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const myFont = localFont({
+const jetBrainsMono = localFont({
   src: "../fonts/JetBrainsMono/JetBrainsMono-Medium.woff2",
   display: "swap",
   variable: "--font-jet-brains-mono",
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${myFont.variable} h-screen w-screen `}>
+      <body className={`${jetBrainsMono.variable} h-screen w-screen `}>
         <main className="p-6 w-full text-base flex flex-col gap-2 h-full font-mono main-wrapper">
           {children}
         </main>

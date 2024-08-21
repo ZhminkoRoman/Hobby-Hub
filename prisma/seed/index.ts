@@ -14,7 +14,6 @@ const initialPosts: Prisma.PostCreateInput[] = [
         },
         create: {
           email: "zhminkors@gmail.com",
-          hashedPassword: "11111111rs",
         },
       },
     },

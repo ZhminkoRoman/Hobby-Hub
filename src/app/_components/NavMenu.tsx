@@ -16,9 +16,8 @@ const navLinks = [
   },
 ];
 
-export default async function NavMenu() {
+export default function NavMenu() {
   const pathname = usePathname();
-  console.log(pathname);
 
   return (
     <div className="w-full flex justify-between ">

@@ -1,7 +1,7 @@
 "use client";
 
 import { signInForm } from "@/src/actions/signIn";
-import SignInButton from "@/src/components/SignInButton";
+import SignInButton from "@/src/app/_components/SignInButton";
 import Link from "next/link";
 import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";

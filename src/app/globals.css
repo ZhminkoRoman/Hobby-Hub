@@ -47,18 +47,6 @@ select:-webkit-autofill {
 
 @layer components {
   .main-wrapper {
-    /* background: repeating-linear-gradient(
-        60deg,
-        transparent,
-        transparent 9px,
-        rgba(0, 0, 0, 0.5) 10px
-      ),
-      repeating-linear-gradient(
-        -30deg,
-        transparent,
-        transparent 9px,
-        rgba(0, 0, 0, 0.5) 10px
-      ); */
   }
 
   .nav-button {
@@ -85,7 +73,7 @@ select:-webkit-autofill {
 
   .input-field {
     /* box-shadow: 0 2px 4px 0 #000; */
-    @apply w-full px-4 py-2 font-mono text-[#ececed] bg-[#111] rounded outline-none tracking-widest shadow-md shadow-black;
+    @apply w-full px-4 py-2 font-mono text-[#111] bg-[#ececed] rounded outline-none tracking-widest shadow-md shadow-black;
   }
 
   .input-field::selection {
