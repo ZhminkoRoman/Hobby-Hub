@@ -24,8 +24,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  /* background: rgb(var(--background-start-rgb)); */
-  @apply font-mono bg-[#141414] tracking-tighter;
+  @apply font-mono bg-[#777b7e] tracking-tighter;
 }
 
 input:-webkit-autofill,
@@ -73,7 +72,7 @@ select:-webkit-autofill {
 
   .input-field {
     /* box-shadow: 0 2px 4px 0 #000; */
-    @apply w-full px-4 py-2 font-mono text-[#111] bg-[#ececed] rounded outline-none tracking-widest shadow-md shadow-black;
+    @apply w-full px-4 py-2 font-mono text-[#111] bg-[#ececed] rounded outline-none tracking-widest;
   }
 
   .input-field::selection {
@@ -85,11 +84,11 @@ select:-webkit-autofill {
   }
 
   .btn {
-    @apply z-10 relative flex w-64 self-center place-content-center text-center px-8 py-4 bg-gradient-to-r from-[#05d9e8] to-[#55ead4] transition-all ease-in-out duration-300 font-bold uppercase outline-none rounded;
+    @apply z-10 relative flex w-64 self-center place-content-center text-center px-8 py-4 bg-gradient-to-r from-[#05d9e8] to-[#55ead4] transition-all ease-in-out duration-300 uppercase outline-none rounded;
   }
 
   .btn-wrapper {
-    @apply relative -skew-x-12 self-center shadow-md shadow-black w-64 hover:w-80 focus:w-80 transition-all ease-in-out duration-300 outline-none text-[#ECECED];
+    @apply relative self-center w-64 hover:w-80 focus:w-80 transition-all ease-in-out duration-300 outline-none text-[#ECECED];
   }
 
   .btn-wrapper:hover > .btn,
@@ -121,11 +120,12 @@ select:-webkit-autofill {
   }
 
   .btn-title {
-    @apply skew-x-12;
+    /* @apply font-black; */
+    font-weight: 800;
   }
 
   .icon {
-    @apply skew-x-12 self-center;
+    @apply self-center;
   }
 
   .link {
@@ -166,7 +166,7 @@ select:-webkit-autofill {
 
   .animated-word {
     cursor: default;
-    @apply opacity-0 text-neutral-800;
+    @apply opacity-0 text-neutral-700;
   }
 
   @keyframes wordBlink {

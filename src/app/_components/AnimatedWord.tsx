@@ -46,7 +46,7 @@ export default function AnimatedWord({
     <li className="animated-background relative w-full h-28">
       <p
         ref={elementRef}
-        className="animated-word w-fit absolute font-black tracking-tighter dark:text-red-900"
+        className="animated-word w-fit absolute font-extrabold tracking-tighter"
       >
         {word}
       </p>

@@ -17,38 +17,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      // colors: {
-      //   // Определите свои темы здесь
-      //   day: {
-      //     background: "#ffffff",
-      //     text: "#000000",
-      //   },
-      //   night: {
-      //     background: "#000000",
-      //     text: "#ffffff",
-      //   },
-      // },
     },
     fontFamily: {
-      mono: ["var(--font-jet-brains-mono)"],
+      mono: [
+        "var(--font-jet-brains-mono-medium)",
+        "var(--font-jet-brains-mono-bold)",
+        "var(--font-jet-brains-mono-extrabold)",
+      ],
     },
   },
-  // variants: {
-  //   extend: {
-  //     backgroundColor: ["autofill"],
-  //     borderColor: ["autofill"],
-  //     textColor: ["autofill"],
-  //   },
-  // },
-  // plugins: [
-  //   function ({ addVariant, e }) {
-  //     addVariant("autofill", ({ modifySelectors, separator }) => {
-  //       modifySelectors(({ className }) => {
-  //         return `.${e(`autofill${separator}${className}`)}:autofill`;
-  //       });
-  //     });
-  //   },
-  // ],
   plugins: [],
 };
 export default config;

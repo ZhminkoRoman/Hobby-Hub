@@ -2,11 +2,22 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const jetBrainsMono = localFont({
+const jetBrainsMonoMedium = localFont({
   src: "../fonts/JetBrainsMono/JetBrainsMono-Medium.woff2",
   display: "swap",
-  variable: "--font-jet-brains-mono",
-  weight: "100 900",
+  variable: "--font-jet-brains-mono-medium",
+});
+
+const jetBrainsMonoBold = localFont({
+  src: "../fonts/JetBrainsMono/JetBrainsMono-Bold.woff2",
+  display: "swap",
+  variable: "--font-jet-brains-mono-bold",
+});
+
+const jetBrainsMonoExtraBold = localFont({
+  src: "../fonts/JetBrainsMono/JetBrainsMono-ExtraBold.woff2",
+  display: "swap",
+  variable: "--font-jet-brains-mono-extrabold",
 });
 
 export const metadata: Metadata = {
@@ -21,8 +32,10 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${jetBrainsMono.variable} h-screen w-screen `}>
-        <main className="p-6 w-full text-base flex flex-col gap-2 h-full font-mono main-wrapper">
+      <body
+        className={`${jetBrainsMonoMedium.variable} ${jetBrainsMonoBold.variable} ${jetBrainsMonoExtraBold.variable} h-screen w-screen `}
+      >
+        <main className="w-full text-base flex flex-col gap-2 h-full font-mono main-wrapper relative">
           {children}
         </main>
       </body>
