@@ -10,22 +10,35 @@ const config: Config = {
   theme: {
     extend: {
       boxShadow: {
-        glow: "0 0 10px 1px rgba(85, 234, 212, 1)",
+        glow: "0 0 6px 1px rgba(85, 234, 212, 1)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-    },
-    fontFamily: {
-      mono: [
-        "var(--font-jet-brains-mono-medium)",
-        "var(--font-jet-brains-mono-bold)",
-        "var(--font-jet-brains-mono-extrabold)",
-      ],
+      fontFamily: {
+        primary: [
+          "var(--font-jet-brains-mono-medium)",
+          "var(--font-jet-brains-mono-bold)",
+          "var(--font-jet-brains-mono-extrabold)",
+        ],
+        secondary: [
+          "var(--font-big-blue-term-regular)",
+          "var(--font-big-blue-term-plus-regular)",
+          "var(--font-big-blue-term-plus-mono-regular)",
+        ],
+      },
+      gridAutoFlow: {
+        dense: "dense",
+      },
     },
   },
   plugins: [],
+  variants: {
+    extend: {
+      gridAutoFlow: ["dense"],
+    },
+  },
 };
 export default config;

@@ -16,7 +16,7 @@ export default function LoginPage() {
     <>
       <form className="w-80 flex flex-col mx-auto justify-center gap-3 z-10">
         <div className="input-wrapper">
-          <label htmlFor="email" className="input-label">
+          <label htmlFor="email" className="input-label font-secondary">
             Email:
           </label>
           <div className="input-field-border">

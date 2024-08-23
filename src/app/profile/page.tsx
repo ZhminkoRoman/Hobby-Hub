@@ -9,7 +9,7 @@ export default async function Profile() {
       email: session?.user?.email || "",
     },
     include: {
-      posts: true,
+      events: true,
       hobbies: true,
     },
   });
@@ -32,19 +32,19 @@ export default async function Profile() {
           <div className="bg-[#292929] w-full h-full rounded-sm" />
         </div>
       )}
-      <p className="font-mono font-bold tracking-widest">
+      <p className="font-primary font-bold tracking-widest">
         Name: {session?.user?.name}
       </p>
-      <p className="font-mono font-bold tracking-widest">
+      <p className="font-primary font-bold tracking-widest">
         Email: {session?.user?.email}
       </p>
       {user?.hobbies?.map((hobby) => (
         <div>
-          <h2 className="font-mono font-bold tracking-widest">Hobbies: </h2>
-          <p className="font-mono font-bold tracking-widest">
+          <h2 className="font-primary font-bold tracking-widest">Hobbies: </h2>
+          <p className="font-primary font-bold tracking-widest">
             Title - {hobby.hobbyTypeTitle}
           </p>
-          <p className="font-mono font-bold tracking-widest">
+          <p className="font-primary font-bold tracking-widest">
             Progression level: {hobby.level}
           </p>
         </div>

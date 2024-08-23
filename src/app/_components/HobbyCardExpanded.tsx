@@ -2,12 +2,18 @@
 
 interface HobbyCardExpandedProps {
   onClose: () => void;
+  readonly title: string;
+  readonly description: string;
 }
 
-export default function HobbyCardExpanded({ onClose }: HobbyCardExpandedProps) {
+export default function HobbyCardExpanded({
+  onClose,
+  title,
+  description,
+}: Readonly<HobbyCardExpandedProps>) {
   return (
     <div
-      className="flex w-screen h-screen justify-center items-center bg-[rgba(0,0,0,0.8)] absolute top-0 left-0 z-[100]"
+      className="flex w-screen h-screen justify-center items-center bg-[rgba(0,0,0,0.6)] absolute top-0 left-0 z-[100]"
       role="button"
       onClick={onClose}
     >
@@ -18,6 +24,8 @@ export default function HobbyCardExpanded({ onClose }: HobbyCardExpandedProps) {
           event.stopPropagation();
         }}
       >
+        <p>{title}</p>
+        <p>{description}</p>
         {/* <input type="text" /> */}
       </div>
     </div>

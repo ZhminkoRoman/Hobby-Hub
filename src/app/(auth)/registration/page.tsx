@@ -17,7 +17,7 @@ export default async function RegistrationPage() {
   // }
 
   return (
-    <main className="w-full h-full font-mono flex flex-col justify-center gap-3">
+    <main className="w-full h-full font-primary flex flex-col justify-center gap-3">
       <form className="w-96 flex flex-col mx-auto justify-center gap-3">
         <div className="flex flex-row">
           <label htmlFor="email" className="sign-label">

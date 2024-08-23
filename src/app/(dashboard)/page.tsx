@@ -1,9 +1,9 @@
-import HobbyCard from "../_components/HobbyCard";
+import HobbyWrapper from "../_components/HobbyWrapper";
 
 export default function Dashboard() {
   return (
-    <div className="h-full w-full gap-2 p-2">
-      <HobbyCard />
+    <div className="gap-2 max-h-[1500px] w-full p-2 overflow-auto">
+      <HobbyWrapper />
     </div>
   );
 }

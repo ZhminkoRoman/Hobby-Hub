@@ -11,8 +11,8 @@ const navLinks = [
     label: "Dashboard",
   },
   {
-    href: "/posts",
-    label: "Posts",
+    href: "/events",
+    label: "Events",
   },
   {
     href: "#",
@@ -44,20 +44,22 @@ export default function NavMenu() {
           ))}
         </ul>
       </div>
-      <div className="flex flex-row justify-end bg-[#111] p-4 rounded-tr-[2rem] rounded-tl-xl relative before:bg-[#777b7e] before:absolute before:h-10 before:w-10 before:-left-10 before:rounded-full before:bottom-0 before:z-20 after:bg-[#111] after:absolute after:h-5 after:block after:w-5 after:bottom-0 after:-left-5 w-full">
+      <div className="flex flex-row justify-between bg-[#111] p-4 rounded-tr-[2rem] rounded-tl-xl relative before:bg-[#777b7e] before:absolute before:h-10 before:w-10 before:-left-10 before:rounded-full before:bottom-0 before:z-20 after:bg-[#111] after:absolute after:h-5 after:block after:w-5 after:bottom-0 after:-left-5 w-full">
         <input
           type="text"
           className="block bg-[#191919] outline-none rounded-xl h-auto self-center px-4 py-2"
         />
-        <div>
-          <Link className={`${"regular-page"}`} href="/profile">
-            Profile
-          </Link>
+        <div className="flex">
+          <div>
+            <Link className={`${"regular-page"}`} href="/profile">
+              Profile
+            </Link>
+          </div>
+          <button onClick={() => signOut()} className="px-4">
+            {" "}
+            Logout{" "}
+          </button>
         </div>
-        <button onClick={() => signOut()} className="px-4">
-          {" "}
-          Logout{" "}
-        </button>
       </div>
     </div>
   );

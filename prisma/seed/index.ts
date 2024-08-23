@@ -2,7 +2,7 @@ import { Prisma, PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const initialPosts: Prisma.PostCreateInput[] = [
+const initialPosts: Prisma.EventCreateInput[] = [
   {
     title: "Post 1",
     slug: "post-1",
@@ -24,7 +24,7 @@ async function main() {
   console.log("Start seeding ...");
 
   for (const post of initialPosts) {
-    const newPost = await prisma.post.create({
+    const newPost = await prisma.event.create({
       data: post,
     });
     console.log(`Created post with id: ${newPost.id}`);

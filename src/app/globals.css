@@ -24,7 +24,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  @apply font-mono bg-[#777b7e] tracking-tighter;
+  @apply font-primary bg-[#777b7e] tracking-tighter;
 }
 
 input:-webkit-autofill,
@@ -49,7 +49,7 @@ select:-webkit-autofill {
   }
 
   .nav-button {
-    @apply border-2 border-transparent py-4 px-8 hover:border-[#55ead4] font-mono active:border-[#c5003c];
+    @apply border-2 border-transparent py-4 px-8 hover:border-[#55ead4] font-primary active:border-[#c5003c];
   }
 
   .page-title {
@@ -72,7 +72,7 @@ select:-webkit-autofill {
 
   .input-field {
     /* box-shadow: 0 2px 4px 0 #000; */
-    @apply w-full px-4 py-2 font-mono text-[#111] bg-[#ececed] rounded outline-none tracking-widest;
+    @apply w-full px-4 py-2 font-primary text-[#111] bg-[#ececed] rounded outline-none tracking-widest;
   }
 
   .input-field::selection {
@@ -80,11 +80,11 @@ select:-webkit-autofill {
   }
 
   .post-input {
-    @apply w-full p-2 font-mono mb-4 text-[#55ead4] bg-[#1f2335] font-bold tracking-widest;
+    @apply w-full p-2 font-primary mb-4 text-[#55ead4] bg-[#1f2335] font-bold tracking-widest;
   }
 
   .btn {
-    @apply z-10 relative flex w-64 self-center place-content-center text-center px-8 py-4 bg-gradient-to-r from-[#05d9e8] to-[#55ead4] transition-all ease-in-out duration-300 uppercase outline-none rounded;
+    @apply z-10 relative flex w-64 self-center place-content-center text-center px-8 py-4 bg-gradient-to-r from-[#05d9e8] to-[#55ead4] transition-all ease-in-out duration-300 uppercase outline-none rounded-lg;
   }
 
   .btn-wrapper {
@@ -115,13 +115,14 @@ select:-webkit-autofill {
   }
 
   .btn-icon {
-    @apply z-0 bg-[#222] border-l-4 border-t-4 border-b-4 border-[#05d9e8] absolute rounded content-[''] pl-3.5 h-full w-20 place-content-center left-0 top-0 transition-all ease-in-out duration-300;
+    @apply z-0 bg-[#222] border-l-4 border-t-4 border-b-4 border-[#05d9e8] absolute rounded-lg content-[''] pl-3.5 h-full w-20 place-content-center left-0 top-0 transition-all ease-in-out duration-300;
     box-shadow: inset 0 2px 4px 0 #000;
   }
 
   .btn-title {
     /* @apply font-black; */
     font-weight: 800;
+    text-shadow: 1px 1px 2px black;
   }
 
   .icon {
@@ -167,6 +168,13 @@ select:-webkit-autofill {
   .animated-word {
     cursor: default;
     @apply opacity-0 text-neutral-700;
+  }
+
+  .cards-wrapper {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(6, minmax(120px, 1fr));
+    grid-template-rows: masonry;
   }
 
   @keyframes wordBlink {

@@ -29,7 +29,9 @@ export default function SignInButton({
       disabled={isPending}
     >
       <div className={`btn ${subclass}`}>
-        <p className="btn-title">{isPending ? "...Loading" : title}</p>
+        <p className="btn-title font-secondary tracking-widest font-bold">
+          {isPending ? "...Loading" : title}
+        </p>
       </div>
       <div className={`btn-icon ${subclass}`}>
         <Image

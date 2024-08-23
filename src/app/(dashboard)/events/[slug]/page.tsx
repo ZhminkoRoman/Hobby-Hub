@@ -19,7 +19,7 @@ export default async function PostPage({
    */
 
   // const post = await getCachedPost(params.slug);
-  const post = await prisma.post.findUnique({
+  const post = await prisma.event.findUnique({
     where: {
       slug: params.slug,
     },
