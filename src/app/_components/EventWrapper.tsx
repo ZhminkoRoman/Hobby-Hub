@@ -1,7 +1,7 @@
 "use client";
 
 import Masonry from "react-masonry-css";
-import HobbyCard from "./HobbyCard";
+import EventCard from "./EventCard";
 
 const hobbiesEvents = [
   {
@@ -42,19 +42,19 @@ const hobbiesEvents = [
   },
 ];
 
-export default function HobbyWrapper() {
+export default function EventWrapper() {
   return (
     <Masonry
-      className="flex gap-2"
-      columnClassName="bg-clip-padding"
+      className="flex"
+      columnClassName="bg-clip-content"
       breakpointCols={5}
     >
-      {hobbiesEvents.map((hobby, index) => {
+      {hobbiesEvents.map((hobbyEvent, index) => {
         return (
-          <HobbyCard
-            title={hobby.person}
-            key={`${hobby.person}_${index}`}
-            description={hobby.description}
+          <EventCard
+            title={hobbyEvent.person}
+            key={`${hobbyEvent.person}_${index}`}
+            description={hobbyEvent.description}
           />
         );
       })}

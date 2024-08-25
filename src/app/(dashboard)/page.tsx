@@ -1,9 +1,5 @@
-import HobbyWrapper from "../_components/HobbyWrapper";
+import EventWrapper from "../_components/EventWrapper";
 
 export default function Dashboard() {
-  return (
-    <div className="gap-2 max-h-[1500px] w-full p-2 overflow-auto">
-      <HobbyWrapper />
-    </div>
-  );
+  return <EventWrapper />;
 }

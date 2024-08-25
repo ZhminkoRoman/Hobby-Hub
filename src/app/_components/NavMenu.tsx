@@ -15,7 +15,7 @@ const navLinks = [
     label: "Events",
   },
   {
-    href: "#",
+    href: "/hobbies",
     label: "Hobbies",
   },
   {

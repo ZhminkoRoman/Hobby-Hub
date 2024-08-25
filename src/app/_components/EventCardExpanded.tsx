@@ -1,16 +1,16 @@
 "use client";
 
-interface HobbyCardExpandedProps {
+interface EventCardExpandedProps {
   onClose: () => void;
   readonly title: string;
   readonly description: string;
 }
 
-export default function HobbyCardExpanded({
+export default function EventCardExpanded({
   onClose,
   title,
   description,
-}: Readonly<HobbyCardExpandedProps>) {
+}: Readonly<EventCardExpandedProps>) {
   return (
     <div
       className="flex w-screen h-screen justify-center items-center bg-[rgba(0,0,0,0.6)] absolute top-0 left-0 z-[100]"
