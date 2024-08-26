@@ -6,9 +6,15 @@ import { useEffect, useState } from "react";
 export default function EventCard({
   title,
   description,
+  userName,
+  userImage,
+  eventImage,
 }: {
   readonly title: string;
   readonly description: string;
+  readonly userName: string | null;
+  readonly userImage: string | null;
+  readonly eventImage: string | null;
 }) {
   const [cardOpened, setCardOpened] = useState(false);
 
@@ -44,19 +50,20 @@ export default function EventCard({
         <Image
           width="200"
           height="150"
-          src={""}
-          alt={"image"}
+          priority={true}
+          src={eventImage || "/defaultBackgroundPicture.png"}
+          alt={"Event background image"}
           className="rounded-sm bg-[#111] w-full"
         />
         <div className="px-4 py-2 pl-20 flex justify-end h-fit w-full relative before:absolute before:-top-7 before:left-5 before:rounded-full before:w-14 before:h-14 bg-[#666] before:bg-[#666]">
           <Image
             width="20"
             height="20"
-            src={""}
-            alt={"image"}
+            src={userImage || "/defaultUserPicture.png"}
+            alt={"Event holder image"}
             className="absolute w-12 h-12 rounded-full bg-[#eee] -top-6 left-6"
           />
-          <p className="font-secondary tracking-widest">{title}</p>
+          <p className="font-secondary tracking-widest">{userName}</p>
         </div>
         <p className="h-fit w-full z-10 p-1 py-4">{description}</p>
       </div>

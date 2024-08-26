@@ -2,11 +2,11 @@ import { Prisma, PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const initialPosts: Prisma.EventCreateInput[] = [
+const initialEvents: Prisma.EventCreateInput[] = [
   {
-    title: "Post 1",
-    slug: "post-1",
-    content: "Content of post",
+    title: "Event 1",
+    slug: "event-1",
+    content: "Content of event",
     author: {
       connectOrCreate: {
         where: {
@@ -23,11 +23,11 @@ const initialPosts: Prisma.EventCreateInput[] = [
 async function main() {
   console.log("Start seeding ...");
 
-  for (const post of initialPosts) {
-    const newPost = await prisma.event.create({
-      data: post,
+  for (const hobbyEvent of initialEvents) {
+    const newEvent = await prisma.event.create({
+      data: hobbyEvent,
     });
-    console.log(`Created post with id: ${newPost.id}`);
+    console.log(`Created event with id: ${newEvent.id}`);
   }
 
   console.log("Seeding finished.");

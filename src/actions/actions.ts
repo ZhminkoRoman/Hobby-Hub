@@ -4,7 +4,14 @@ import sha256 from "crypto-js/sha256";
 import { revalidatePath } from "next/cache";
 import prisma from "../lib/db";
 
-type Posts =
+export type User = {
+  id: string;
+  name: string | null;
+  image: string | null;
+  events: Events;
+} | null;
+
+export type Events =
   | {
       id: string;
       title: string;
@@ -12,12 +19,13 @@ type Posts =
       content: string;
       published: boolean;
       authorId: string;
+      eventImage: string | null;
       updatedAt: Date;
       createdAt: Date;
     }[]
   | undefined;
 
-export async function getUserPosts(): Promise<Posts> {
+export async function getUserEvents(): Promise<User> {
   const user = await prisma.user.findUnique({
     where: {
       email: "zhminkors@gmail.com",
@@ -27,7 +35,7 @@ export async function getUserPosts(): Promise<Posts> {
       name: true,
       image: true,
       // password: true
-      posts: true,
+      events: true,
     },
   });
 
@@ -36,12 +44,12 @@ export async function getUserPosts(): Promise<Posts> {
     // const { password, ...userWithoutPassword } = user;
   }
 
-  revalidatePath("/posts");
-  return user?.posts;
+  revalidatePath("/events");
+  return user;
 }
 
-export async function getPost(slug: string) {
-  return await prisma.post.findUnique({
+export async function getEvent(slug: string) {
+  return await prisma.event.findUnique({
     where: {
       slug: slug,
     },
@@ -51,12 +59,25 @@ export async function getPost(slug: string) {
   });
 }
 
-export async function createPost(formData: FormData) {
-  /**
-   * ! This should be in service files;
-   */
+const toBase64 = (file: File) => {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+
+    fileReader.readAsDataURL(file);
+
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+
+    fileReader.onerror = (error) => {
+      reject(error);
+    };
+  });
+};
+
+export async function createEvent(formData: FormData) {
   try {
-    await prisma.post.create({
+    await prisma.event.create({
       data: {
         title: formData.get("title") as string,
         content: formData.get("content") as string,
@@ -69,6 +90,7 @@ export async function createPost(formData: FormData) {
             email: "zhminkors@gmail.com",
           },
         },
+        eventImage: "", // here should be our base64 image,
       },
     });
   } catch (error) {
@@ -78,8 +100,8 @@ export async function createPost(formData: FormData) {
   revalidatePath("/");
 }
 
-export async function editPost(formData: FormData, id: string) {
-  await prisma.post.update({
+export async function editEvent(formData: FormData, id: string) {
+  await prisma.event.update({
     where: {
       id,
     },
@@ -95,8 +117,8 @@ export async function editPost(formData: FormData, id: string) {
   revalidatePath("/");
 }
 
-export async function deletePost(id: string) {
-  await prisma.post.delete({
+export async function deleteEvent(id: string) {
+  await prisma.event.delete({
     where: {
       id,
     },
