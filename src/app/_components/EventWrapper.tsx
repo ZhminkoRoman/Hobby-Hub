@@ -5,7 +5,6 @@ import EventCard from "./EventCard";
 import { User } from "@/src/actions/actions";
 
 export default function EventWrapper({ user }: { user: User }) {
-  console.log(user);
   return (
     <Masonry
       className="flex"

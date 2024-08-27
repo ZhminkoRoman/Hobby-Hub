@@ -90,7 +90,7 @@ export async function createEvent(formData: FormData) {
             email: "zhminkors@gmail.com",
           },
         },
-        eventImage: "", // here should be our base64 image,
+        eventImage: formData.get("eventImageBase64") as string, // here should be our base64 image,
       },
     });
   } catch (error) {

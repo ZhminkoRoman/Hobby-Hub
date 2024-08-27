@@ -1,4 +1,5 @@
 import { createEvent } from "@/src/actions/actions";
+import UploadImageToEvent from "../../_components/UploadImageToEvent";
 
 export default function EventsPage() {
   return (
@@ -21,11 +22,7 @@ export default function EventsPage() {
           rows={5}
           className="input-field"
         />
-        <input
-          type="file"
-          accept="image/png, image/jpeg, video/*"
-          name="eventImage"
-        />
+        <UploadImageToEvent />
         <button type="submit" className="btn">
           Create event
         </button>

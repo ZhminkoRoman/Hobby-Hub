@@ -48,8 +48,8 @@ export default function EventCard({
         onClick={handleOpenCard}
       >
         <Image
-          width="200"
-          height="150"
+          width="100"
+          height="100"
           priority={true}
           src={eventImage || "/defaultBackgroundPicture.png"}
           alt={"Event background image"}
@@ -72,6 +72,7 @@ export default function EventCard({
           onClose={() => setCardOpened(false)}
           title={title}
           description={description}
+          eventImageSource={eventImage}
         />
       ) : null}
     </>

@@ -75,6 +75,12 @@ model Event {
   @@index([authorId])
 }
 
+model Message {
+  id        String   @id @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+}
+
 model HobbyCategory {
   id          String      @id @default(uuid())
   title       String
