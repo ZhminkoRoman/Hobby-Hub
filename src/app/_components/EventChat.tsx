@@ -7,7 +7,7 @@ const EventChat: React.FC = () => {
   const [messages, setMessages] = useState<string[]>([]);
 
   return (
-    <div>
+    <div className="border-2">
       <div>
         {messages.map((msg, index) => (
           <div key={index}>{msg}</div>

@@ -39,8 +39,10 @@ export default function EventCardExpanded({
           />
           <p className="bg-[#111] rounded-md p-2">{title}</p>
         </div>
-        <div className="w-full">
-          <p className="p-2 bg-[#111] rounded-md w-full h-24">{description}</p>
+        <div className="w-full gap-2">
+          <p className="p-2 bg-[#111] rounded-md w-full h-24 mb-2">
+            {description}
+          </p>
           <EventChat />
         </div>
       </div>

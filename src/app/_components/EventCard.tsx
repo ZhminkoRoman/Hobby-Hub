@@ -44,7 +44,7 @@ export default function EventCard({
   return (
     <>
       <div
-        className="flex flex-col rounded-2xl w-80 rounded-br-none border-4 border-[#090909] p-2 bg-[#222] cursor-pointer hover:shadow-glow hover:shadow-[#05d9e8] mb-4"
+        className="flex flex-col rounded-2xl w-80 h-fit rounded-br-none border-4 border-[#090909] p-2 bg-[#222] cursor-pointer hover:shadow-glow hover:shadow-[#05d9e8] mb-4"
         onClick={handleOpenCard}
       >
         <Image
@@ -55,7 +55,7 @@ export default function EventCard({
           alt={"Event background image"}
           className="rounded-sm bg-[#111] w-full"
         />
-        <div className="px-4 py-2 pl-20 flex justify-end h-fit w-full relative before:absolute before:-top-7 before:left-5 before:rounded-full before:w-14 before:h-14 bg-[#666] before:bg-[#666]">
+        <div className="px-4 py-2 pl-20 flex justify-end h-fit relative before:absolute before:-top-7 before:left-5 before:rounded-full before:w-14 before:h-14 bg-[#666] before:bg-[#666]">
           <Image
             width="20"
             height="20"
