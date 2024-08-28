@@ -1,16 +1,13 @@
 "use client";
 
-import Masonry from "react-masonry-css";
 import EventCard from "./EventCard";
 import { User } from "@/src/actions/actions";
 
 export default function EventWrapper({ user }: { user: User }) {
+  // переписать эту хрень
+
   return (
-    <Masonry
-      className="flex"
-      columnClassName="bg-clip-content"
-      breakpointCols={5}
-    >
+    <div className="grid grid-cols-[repeat(auto-fill,_350px)] gap-2">
       {user?.events?.map((hobbyEvent, index) => {
         return (
           <EventCard
@@ -23,6 +20,6 @@ export default function EventWrapper({ user }: { user: User }) {
           />
         );
       })}
-    </Masonry>
+    </div>
   );
 }

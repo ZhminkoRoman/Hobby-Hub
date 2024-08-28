@@ -53,23 +53,25 @@ model User {
   hobbies       UsersHobby[]
   accounts      Account[]
   sessions      Session[]
+  Message       Message[]
 
   @@map("users")
 }
 
 model Event {
-  id         String   @id @default(uuid())
-  title      String
-  slug       String   @unique
-  content    String
-  published  Boolean  @default(false)
-  author     User     @relation(fields: [authorId], references: [id])
-  authorId   String
-  eventImage String?
-  eventVideo String?
+  id            String    @id @default(uuid())
+  title         String
+  slug          String    @unique
+  content       String
+  published     Boolean   @default(false)
+  author        User      @relation(fields: [authorId], references: [id])
+  authorId      String
+  eventImage    String?
+  eventVideo    String?
+  eventMessages Message[]
   // authors   User[]
-  updatedAt  DateTime @updatedAt
-  createdAt  DateTime @default(now())
+  updatedAt     DateTime  @updatedAt
+  createdAt     DateTime  @default(now())
 
   @@index(slug)
   @@index([authorId])
@@ -78,7 +80,16 @@ model Event {
 model Message {
   id        String   @id @default(uuid())
   content   String
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
+  avatar    String
+  likes     Int      @default(value: 0)
   createdAt DateTime @default(now())
+  Event     Event?   @relation(fields: [eventId], references: [id])
+  eventId   String?
+
+  @@index([authorId])
+  @@index([eventId])
 }
 
 model HobbyCategory {
