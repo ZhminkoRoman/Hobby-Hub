@@ -41,6 +41,8 @@ export default function EventCard({
       });
   }, []);
 
+  console.log(eventImage);
+
   return (
     <>
       <div
@@ -59,9 +61,9 @@ export default function EventCard({
           <Image
             width="20"
             height="20"
-            src={userImage || "/defaultUserPicture.png"}
+            src={userImage ?? "/defaultUserPicture.png"}
             alt={"Event holder image"}
-            className="absolute w-12 h-12 rounded-full bg-[#eee] -top-6 left-6"
+            className="absolute w-12 h-12 object-cover rounded-full bg-[#eee] -top-6 left-6"
           />
           <p className="font-secondary tracking-widest">{userName}</p>
         </div>
