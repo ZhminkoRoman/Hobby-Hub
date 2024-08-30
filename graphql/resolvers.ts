@@ -7,7 +7,6 @@ export const resolvers = {
           title: "test-1",
           slug: "test-1",
           content: "test description",
-          published: true,
           authorId: "sadvfdsfka",
         },
       ];
