@@ -1,21 +1,4 @@
-// import { auth, signIn } from "@/auth";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-
 export default async function RegistrationPage() {
-  // async function signUpForm(formData: FormData) {
-  //   "use server";
-
-  //   const rawFormData = {
-  //     redirectTo: "http://localhost:3000/login",
-  //     email: formData.get("email"),
-  //     password: formData.get("password"),
-  //     repeatPassword: formData.get("repeatPassword"),
-  //   };
-
-  //   await signIn("credentials", rawFormData);
-  // }
-
   return (
     <main className="w-full h-full font-primary flex flex-col justify-center gap-3">
       <form className="w-96 flex flex-col mx-auto justify-center gap-3">

@@ -2,10 +2,8 @@
 
 import { signInForm } from "@/src/actions/signIn";
 import SignInButton from "@/src/app/_components/SignInButton";
-import Link from "next/link";
 import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";
-import { signIn } from "@/auth";
 
 export default function LoginPage() {
   const searchParams = useSearchParams();
