@@ -41,8 +41,6 @@ export default function EventCard({
       });
   }, []);
 
-  console.log(eventImage);
-
   return (
     <>
       <div

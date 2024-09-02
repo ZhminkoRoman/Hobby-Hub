@@ -1,13 +1,4 @@
 import prisma from "@/src/lib/db";
-import { unstable_cache as cache } from "next/cache";
-
-// const getCachedPost = cache((slug: string) => {
-//   return prisma.post.findUnique({
-//     where: {
-//       slug,
-//     },
-//   });
-// });
 
 export default async function PostPage({
   params,

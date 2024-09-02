@@ -1,4 +1,3 @@
-// import { SessionProvider } from "next-auth/react";
 import NavMenu from "../_components/NavMenu";
 
 export default function DashboardLayout({

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const EventChat: React.FC = () => {
   const [message, setMessage] = useState("");
@@ -10,7 +10,7 @@ const EventChat: React.FC = () => {
     <div className="border-2">
       <div>
         {messages.map((msg, index) => (
-          <div key={index}>{msg}</div>
+          <div key={`${msg}+${index}`}>{msg}</div>
         ))}
       </div>
       <input
@@ -19,7 +19,6 @@ const EventChat: React.FC = () => {
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Type your message"
       />
-      {/* <button onClick={sendMessage}>Send</button> */}
     </div>
   );
 };

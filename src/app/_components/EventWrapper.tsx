@@ -1,10 +1,8 @@
-"use client";
-
+import { getUserEvents } from "@/src/actions/actions";
 import EventCard from "./EventCard";
-import { User } from "@/src/actions/actions";
 
-export default function EventWrapper({ user }: { user: User }) {
-  // переписать эту хрень
+export default async function EventWrapper() {
+  const user = await getUserEvents();
 
   return (
     <div className="grid grid-cols-[repeat(auto-fill,_350px)] gap-2">

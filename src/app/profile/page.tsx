@@ -8,11 +8,12 @@ export default async function Profile() {
     where: {
       email: session?.user?.email || "",
     },
-    include: {
-      events: true,
+    select: {
       hobbies: true,
     },
   });
+
+  console.log(user);
 
   return (
     <main className="flex p-6 flex-col gap-2">

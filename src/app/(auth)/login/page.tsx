@@ -28,18 +28,6 @@ export default function LoginPage() {
             />
           </div>
         </div>
-        {/* <div className="flex flex-row">
-          <label htmlFor="password" className="sign-label">
-            Password
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            required
-            className="sign-input"
-          />
-        </div> */}
         <SignInButton title="Sign In" provider="credentials" />
         {error ? <p>{error}</p> : null}
         {searchError ? <p>{searchError}</p> : null}
@@ -49,9 +37,6 @@ export default function LoginPage() {
         <SignInButton title="Google" provider="google" subclass="google" />
         <SignInButton title="GitHub" provider="github" subclass="github" />
       </form>
-      {/* <Link href="/auth/registration" className="link mx-auto">
-        or Sign Up
-      </Link> */}
     </>
   );
 }

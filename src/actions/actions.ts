@@ -1,6 +1,5 @@
 "use server";
 
-import sha256 from "crypto-js/sha256";
 import { revalidatePath } from "next/cache";
 import prisma from "../lib/db";
 
