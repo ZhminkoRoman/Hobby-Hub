@@ -1,6 +1,11 @@
-import { NextRequest } from "next/server";
+import { auth } from "@/auth";
 
-export async function middleware(request: NextRequest) {}
+export default auth((req) => {
+  // if (!req.auth && req.nextUrl.pathname !== "/login") {
+  //   const newUrl = new URL("/login", req.nextUrl.origin)
+  //   return Response.redirect(newUrl)
+  // }
+});
 
 export const config = {
   matcher: ["/:path*", "/((?!api|_next/static|_next/image|.*\\.png$).*)"],
