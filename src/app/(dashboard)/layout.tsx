@@ -8,7 +8,7 @@ export default function DashboardLayout({
   return (
     <div className="flex flex-col h-screen w-full">
       <NavMenu />
-      <div className="bg-[#111] rounded-l-3xl rounded-br-3xl rounded-ss-xl h-full p-4">
+      <div className="rounded-l-3xl rounded-br-3xl rounded-ss-xl h-full p-4">
         {children}
       </div>
     </div>

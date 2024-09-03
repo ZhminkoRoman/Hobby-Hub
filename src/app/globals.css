@@ -24,7 +24,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  @apply font-primary bg-[#777b7e] tracking-tighter;
+  @apply font-primary bg-[#eee] tracking-tighter;
 }
 
 input:-webkit-autofill,
@@ -61,8 +61,12 @@ select:-webkit-autofill {
   }
 
   .input-label {
-    @apply p-0 tracking-widest;
-    text-shadow: 1px 1px 2px black;
+    @apply p-0 tracking-widest text-[#292929];
+    /* text-shadow: 3px 3px 0px rgba(89, 89, 89, 0.5); */
+  }
+
+  .division {
+    /* text-shadow: 3px 3px 0px rgba(89, 89, 89, 0.5); */
   }
 
   .input-field-border {
@@ -72,7 +76,10 @@ select:-webkit-autofill {
 
   .input-field {
     /* box-shadow: 0 2px 4px 0 #000; */
-    @apply w-full px-4 py-2 font-primary text-[#111] bg-[#ececed] rounded outline-none tracking-widest;
+    @apply w-full px-4 py-2 font-primary text-[#ececec] bg-[#111] outline-none tracking-widest;
+    box-shadow: 3px 3px 0px rgba(89, 89, 89, 0.5);
+    /* text-shadow: 2px 2px 1px rgba(89, 89, 89, 0.5); */
+    /* text-shadow: 3px 3px 1px #696969; */
   }
 
   .input-field::selection {
@@ -84,17 +91,18 @@ select:-webkit-autofill {
   }
 
   .btn {
-    @apply z-10 relative flex w-64 self-center place-content-center text-center px-8 py-4 bg-gradient-to-r from-[#05d9e8] to-[#55ead4] transition-all ease-in-out duration-300 uppercase outline-none rounded-lg;
+    @apply z-10 relative flex w-64 self-center place-content-center text-center px-8 py-4 bg-gradient-to-tl from-[#05d9e8] to-[#55ead4] transition-all ease-in-out duration-300 uppercase outline-none;
+    box-shadow: 3px 3px 0px rgba(85, 234, 212, 0.5);
   }
 
   .btn-wrapper {
-    @apply relative self-center w-64 hover:w-80 focus:w-80 transition-all ease-in-out duration-300 outline-none text-[#ECECED];
+    @apply relative self-center w-64 transition-all ease-in-out duration-300 outline-none text-[#ECECED];
   }
 
-  .btn-wrapper:hover > .btn,
+  /* .btn-wrapper:hover > .btn,
   .btn-wrapper:focus > .btn {
     @apply translate-x-16;
-  }
+  } */
 
   .grid-overlay {
     position: absolute;
@@ -122,7 +130,7 @@ select:-webkit-autofill {
   .btn-title {
     /* @apply font-black; */
     font-weight: 800;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 2px 2px 0px #292929;
   }
 
   .icon {
@@ -135,10 +143,12 @@ select:-webkit-autofill {
 
   .google {
     @apply from-[#ff184c] to-[#ff8400] border-[#ff184c];
+    box-shadow: 3px 3px 0px rgba(255, 132, 0, 0.5);
   }
 
   .github {
     @apply from-[#111] to-[#191919] border-[#111];
+    box-shadow: 3px 3px 0px rgba(89, 89, 89, 0.5);
   }
 
   .divider {

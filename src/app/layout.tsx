@@ -53,7 +53,7 @@ export default async function RootLayout({
       <body
         className={`${jetBrainsMonoMedium.variable} ${jetBrainsMonoBold.variable} ${jetBrainsMonoExtraBold.variable} ${bigBlueTerminalRegular.variable} ${bigBlueTerminalPlusRegular.variable} ${bigBlueTerminalPlusMonoRegular.variable} h-screen w-screen`}
       >
-        <main className="w-full text-base flex flex-col h-full font-mono relative p-4">
+        <main className="w-full text-base flex flex-col h-full font-mono relative">
           {children}
         </main>
       </body>

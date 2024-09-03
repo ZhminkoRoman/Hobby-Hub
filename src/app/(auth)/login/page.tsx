@@ -32,7 +32,9 @@ export default function LoginPage() {
         {error ? <p>{error}</p> : null}
         {searchError ? <p>{searchError}</p> : null}
       </form>
-      <p className="divider z-10 uppercase font-extrabold">or continue with</p>
+      <p className="division divider z-10 uppercase font-extrabold text-[#292929] font-secondary">
+        or continue with
+      </p>
       <form className="w-80 flex flex-col mx-auto justify-center gap-3 z-10">
         <SignInButton title="Google" provider="google" subclass="google" />
         <SignInButton title="GitHub" provider="github" subclass="github" />
