@@ -33,15 +33,6 @@ export default function SignInButton({
           {isPending ? "...Loading" : title}
         </p>
       </div>
-      {/* <div className={`btn-icon ${subclass}`}>
-        <Image
-          width="35"
-          height="35"
-          src={icons[provider]}
-          alt={title}
-          className="icon"
-        />
-      </div> */}
     </button>
   );
 }

@@ -10,13 +10,14 @@ const config: Config = {
   theme: {
     extend: {
       boxShadow: {
-        glow: "0 0 6px 1px rgba(85, 234, 212, 1)",
+        pixelBoxShadow: "3px 3px 0px",
+      },
+      dropShadow: {
+        pixelTextShadow: "2px 2px 0px #292929",
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         watercolor: "url('/public/watercolor.png')",
+        button: "linear-gradient(to top left, #05d9e8, #55ead4)",
       },
       fontFamily: {
         primary: [

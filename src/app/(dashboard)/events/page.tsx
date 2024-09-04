@@ -24,7 +24,9 @@ export default function EventsPage() {
         />
         <UploadImageToEvent />
         <button type="submit" className="btn">
-          Create event
+          <p className="btn-title font-secondary tracking-widest font-bold">
+            Create event
+          </p>
         </button>
       </form>
     </>

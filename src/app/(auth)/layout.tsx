@@ -6,9 +6,8 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="w-full h-full font-primary flex flex-col justify-center gap-3 relative overflow-hidden">
+    <main className="w-full h-full font-primary flex flex-col justify-center gap-3 relative overflow-hidden z-10">
       {children}
-      <AuthAnimatedLayout />
     </main>
   );
 }

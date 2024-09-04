@@ -44,7 +44,7 @@ export default function EventCard({
   return (
     <>
       <div
-        className="flex flex-col rounded-2xl w-80 h-fit rounded-br-none border-4 border-[#090909] p-2 bg-[#222] cursor-pointer hover:shadow-glow hover:shadow-[#05d9e8] mb-4"
+        className="flex flex-col w-80 h-fit border-4 border-[#090909] p-2 bg-[#222] cursor-pointer mb-4"
         onClick={handleOpenCard}
       >
         <Image

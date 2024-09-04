@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import AuthAnimatedLayout from "./_components/AuthAnimatedLayout";
 
 const jetBrainsMonoMedium = localFont({
   src: "../fonts/JetBrainsMono/JetBrainsMono-Medium.woff2",
@@ -55,6 +56,7 @@ export default async function RootLayout({
       >
         <main className="w-full text-base flex flex-col h-full font-mono relative">
           {children}
+          <AuthAnimatedLayout />
         </main>
       </body>
     </html>

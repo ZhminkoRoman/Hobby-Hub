@@ -31,20 +31,21 @@ export default function NavMenu() {
   const pathname = usePathname();
 
   return (
-    <div className="flex gap-4">
-      <div className="w-fit flex z-30 p-2 mb-4">
-        <ul className="flex gap-6">
+    <div className="flex gap-4 bg-[#111] shadow-[#444] shadow-[3px_3px_0_rgba(89,89,89,0.5)]">
+      <div className="w-fit flex">
+        <ul className="flex">
           {navLinks.map((link, index) => {
             return (
               <li
                 key={`${link.href}_${index}`}
-                className={`font-bold ${
-                  pathname === link.href
-                    ? "text-emerald-500 focus:text-emerald-500"
-                    : "text-gray-50"
+                className={`font-bold px-2 ${
+                  pathname === link.href ? "bg-button" : "text-gray-50"
                 }`}
               >
-                <Link href={link.href} className={`${"regular-page"}`}>
+                <Link
+                  href={link.href}
+                  className={`${"regular-page"} font-secondary tracking-widest drop-shadow-pixelTextShadow`}
+                >
                   {link.label}
                 </Link>
               </li>
@@ -55,14 +56,12 @@ export default function NavMenu() {
       <div className="flex flex-row justify-between w-full">
         <input
           type="text"
-          className="block bg-[#191919] outline-none rounded-xl h-auto self-center px-4 py-2"
+          className="block bg-[#292929] outline-none h-auto self-center px-4 py-2"
         />
-        <div className="flex">
-          <div>
-            <Link className={`${"regular-page"}`} href="/profile">
-              Profile
-            </Link>
-          </div>
+        <div className="flex items-center">
+          <Link className={`${"regular-page"}`} href="/profile">
+            Profile
+          </Link>
           <button onClick={() => signOut()} className="px-4">
             {" "}
             Logout{" "}

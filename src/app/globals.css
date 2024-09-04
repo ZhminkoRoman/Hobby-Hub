@@ -168,7 +168,7 @@ select:-webkit-autofill {
 
   .regular-page:hover,
   .regular-page:focus {
-    @apply text-[#05d9e8];
+    /* @apply text-[#05d9e8]; */
   }
 
   .animated-background {
