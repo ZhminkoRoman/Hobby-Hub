@@ -17,6 +17,9 @@
 # production
 /build
 
+# docker
+/docker-data
+
 # misc
 .DS_Store
 *.pem

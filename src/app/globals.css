@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@property --project-background-rgb {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: 236, 236, 237;
+}
+
 :root {
   --foreground-rgb: 236, 236, 237;
   --background-start-rgb: 214, 219, 220;
@@ -25,6 +31,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   @apply font-primary bg-[#eee] tracking-tighter;
+  width: calc(100vw - 17px);
 }
 
 input:-webkit-autofill,
@@ -33,9 +40,7 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
-  /* -webkit-box-shadow: 0 0 0 30px #1f2335 inset rounded !important; */
   -webkit-text-fill-color: #55ead4 !important;
-  /* font-family: "JetBrainsMono"; */
 }
 
 @layer utilities {
@@ -62,28 +67,34 @@ select:-webkit-autofill {
 
   .input-label {
     @apply p-0 tracking-widest text-[#292929];
-    /* text-shadow: 3px 3px 0px rgba(89, 89, 89, 0.5); */
-  }
-
-  .division {
-    /* text-shadow: 3px 3px 0px rgba(89, 89, 89, 0.5); */
-  }
-
-  .input-field-border {
-    /* @apply border-[1px] rounded */
-    /* @apply relative bg-gradient-to-r from-[#222] to-[#333] p-[5px] rounded shadow-md shadow-black; */
   }
 
   .input-field {
-    /* box-shadow: 0 2px 4px 0 #000; */
-    @apply w-full px-4 py-2 font-primary text-[#ececec] bg-[#111] outline-none tracking-widest;
+    @apply w-full px-4 py-2 font-primary text-[#ececec] bg-[rgba(10,_10,_10,_0.7)] outline-none tracking-widest hover:bg-[rgba(10,_10,_10,_1.0)] focus:bg-[rgba(10,_10,_10,_1.0)] transition-all ease-in-out duration-300 backdrop-blur-sm hover:backdrop-blur-none focus:backdrop-blur-none;
     box-shadow: 3px 3px 0px rgba(89, 89, 89, 0.5);
-    /* text-shadow: 2px 2px 1px rgba(89, 89, 89, 0.5); */
-    /* text-shadow: 3px 3px 1px #696969; */
   }
 
   .input-field::selection {
     @apply bg-[#111];
+  }
+
+  .input-field:hover,
+  .input-field:focus {
+    box-shadow: 3px 3px 0px rgba(200, 200, 200, 0.7);
+  }
+
+  .create-button:before {
+    position: absolute;
+    content: "";
+    top: calc(3.5rem - 50% - 0.25rem);
+    @apply w-8 h-2 left-3 bg-slate-50;
+  }
+
+  .create-button:after {
+    position: absolute;
+    content: "";
+    left: calc(3.5rem - 50% - 0.25rem);
+    @apply w-2 h-8 top-3 bg-slate-50;
   }
 
   .post-input {
@@ -91,7 +102,7 @@ select:-webkit-autofill {
   }
 
   .btn {
-    @apply z-10 relative flex w-64 self-center place-content-center text-center px-8 py-4 bg-gradient-to-tl from-[#05d9e8] to-[#55ead4] transition-all ease-in-out duration-300 uppercase outline-none;
+    @apply z-10 relative flex w-64 self-center place-content-center text-center  px-8 py-4 bg-gradient-to-tl from-[#05d9e8] to-[#55ead4] grayscale transition-all ease-in-out duration-300 uppercase outline-none;
     box-shadow: 3px 3px 0px rgba(85, 234, 212, 0.5);
   }
 
@@ -99,27 +110,9 @@ select:-webkit-autofill {
     @apply relative self-center w-64 transition-all ease-in-out duration-300 outline-none text-[#ECECED];
   }
 
-  /* .btn-wrapper:hover > .btn,
+  .btn-wrapper:hover > .btn,
   .btn-wrapper:focus > .btn {
-    @apply translate-x-16;
-  } */
-
-  .grid-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 1px,
-        rgba(0, 0, 0, 0.1) 2px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 1px,
-        rgba(0, 0, 0, 0.1) 2px
-      );
+    @apply grayscale-0;
   }
 
   .btn-icon {
@@ -128,7 +121,7 @@ select:-webkit-autofill {
   }
 
   .btn-title {
-    /* @apply font-black; */
+    @apply transition-all ease-in-out duration-300;
     font-weight: 800;
     text-shadow: 2px 2px 0px #292929;
   }
@@ -142,13 +135,13 @@ select:-webkit-autofill {
   }
 
   .google {
-    @apply from-[#ff184c] to-[#ff8400] border-[#ff184c];
+    @apply from-[#ff184c] to-[#ff9400];
     box-shadow: 3px 3px 0px rgba(255, 132, 0, 0.5);
   }
 
   .github {
-    @apply from-[#111] to-[#191919] border-[#111];
-    box-shadow: 3px 3px 0px rgba(89, 89, 89, 0.5);
+    @apply from-[rgb(95,_42,_141)] to-[rgb(142,_79,_172)];
+    box-shadow: 3px 3px 0px rgba(110, 84, 148, 0.5);
   }
 
   .divider {
@@ -157,18 +150,10 @@ select:-webkit-autofill {
 
   .active-page {
     @apply block p-4 outline-none;
-    /* box-shadow: inset 0 1px 2px 0 #000; */
-    /* text-shadow: 0 0 1em #ececed; */
   }
 
   .regular-page {
     @apply block p-4 outline-none transition-all ease-in-out duration-300;
-    /* box-shadow: inset 0 1px 2px 0 #000; */
-  }
-
-  .regular-page:hover,
-  .regular-page:focus {
-    /* @apply text-[#05d9e8]; */
   }
 
   .animated-background {

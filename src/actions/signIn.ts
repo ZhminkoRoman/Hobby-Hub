@@ -18,7 +18,7 @@ export async function signInForm(previousState: unknown, formData: FormData) {
     password: formData.get("password"),
   };
 
-  // await signIn("credentials", rawFormData);
+  await signIn("credentials", rawFormData);
 }
 
 export async function signInWithProvider(

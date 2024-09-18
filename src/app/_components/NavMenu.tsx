@@ -30,16 +30,18 @@ const navLinks = [
 export default function NavMenu() {
   const pathname = usePathname();
 
+  // hover:after:shadow-pixelBoxShadow after:w-full after:h-full after:top-0 after:left-0 after:absolute after:flex after:border-2
+
   return (
-    <div className="flex gap-4 bg-[#111] shadow-[#444] shadow-[3px_3px_0_rgba(89,89,89,0.5)]">
+    <div className="flex gap-4 bg-[rgba(49,49,49,0.9)] justify-between p-2 backdrop-blur-sm">
       <div className="w-fit flex">
         <ul className="flex">
           {navLinks.map((link, index) => {
             return (
               <li
                 key={`${link.href}_${index}`}
-                className={`font-bold px-2 ${
-                  pathname === link.href ? "bg-button" : "text-gray-50"
+                className={`font-bold px-2 relative ${
+                  pathname === link.href ? "bg-hoveredButton" : "text-gray-50"
                 }`}
               >
                 <Link
@@ -53,11 +55,11 @@ export default function NavMenu() {
           })}
         </ul>
       </div>
-      <div className="flex flex-row justify-between w-full">
-        <input
+      <div className="flex">
+        {/* <input
           type="text"
           className="block bg-[#292929] outline-none h-auto self-center px-4 py-2"
-        />
+        /> */}
         <div className="flex items-center">
           <Link className={`${"regular-page"}`} href="/profile">
             Profile

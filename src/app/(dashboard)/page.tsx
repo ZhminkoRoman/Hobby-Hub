@@ -1,5 +1,3 @@
-import EventWrapper from "../_components/EventWrapper";
-
 export default async function Dashboard() {
-  return <EventWrapper />;
+  return <div className="flex justify-between w-full"></div>;
 }

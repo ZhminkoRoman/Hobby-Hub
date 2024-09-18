@@ -8,7 +8,7 @@ import { useSearchParams } from "next/navigation";
 export default function LoginPage() {
   const searchParams = useSearchParams();
   const searchError = searchParams.get("error");
-  const [error, action, isPending] = useActionState(signInForm, null);
+  const [state, action, isPending] = useActionState(signInForm, null);
 
   return (
     <>
@@ -17,19 +17,30 @@ export default function LoginPage() {
           <label htmlFor="email" className="input-label font-secondary">
             Email:
           </label>
-          <div className="input-field-border">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              required
-              className="input-field"
-              placeholder="enter your email"
-            />
-          </div>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            className="input-field"
+            placeholder="enter your email"
+          />
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="password" className="input-label font-secondary">
+            Password:
+          </label>
+          <input
+            name="password"
+            type="password"
+            id="password"
+            required
+            placeholder="password"
+            className="input-field"
+          />
         </div>
         <SignInButton title="Sign In" provider="credentials" />
-        {error ? <p>{error}</p> : null}
+        {/* {error ? <p>{error}</p> : null} */}
         {searchError ? <p>{searchError}</p> : null}
       </form>
       <p className="division divider z-10 uppercase font-extrabold text-[#292929] font-secondary">

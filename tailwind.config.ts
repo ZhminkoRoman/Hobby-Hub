@@ -9,6 +9,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        bgSpin: {
+          "0%": { "background-position": "0% 50%" },
+          "50%": { "background-position": "100% 50%" },
+          "100%": { "background-position": "0% 50%" },
+        },
+      },
+      animation: {
+        bgSpin: "bgSpin 5s linear infinite",
+      },
       boxShadow: {
         pixelBoxShadow: "3px 3px 0px",
       },
@@ -17,7 +27,9 @@ const config: Config = {
       },
       backgroundImage: {
         watercolor: "url('/public/watercolor.png')",
-        button: "linear-gradient(to top left, #05d9e8, #55ead4)",
+        button:
+          "repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(255, 255, 255, 0.2) 5px),repeating-linear-gradient(90deg,transparent,transparent 4px,rgba(255, 255, 255, 0.2) 5px),linear-gradient(to top left, #05d9e8 50%, #55ead4)",
+        hoveredButton: "linear-gradient(to top left, #05d9e8 50%, #55ead4)",
       },
       fontFamily: {
         primary: [

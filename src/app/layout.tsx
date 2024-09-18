@@ -52,7 +52,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${jetBrainsMonoMedium.variable} ${jetBrainsMonoBold.variable} ${jetBrainsMonoExtraBold.variable} ${bigBlueTerminalRegular.variable} ${bigBlueTerminalPlusRegular.variable} ${bigBlueTerminalPlusMonoRegular.variable} h-screen w-screen`}
+        className={`${jetBrainsMonoMedium.variable} ${jetBrainsMonoBold.variable} ${jetBrainsMonoExtraBold.variable} ${bigBlueTerminalRegular.variable} ${bigBlueTerminalPlusRegular.variable} ${bigBlueTerminalPlusMonoRegular.variable} h-screen w-full`}
       >
         <main className="w-full text-base flex flex-col h-full font-mono relative">
           {children}

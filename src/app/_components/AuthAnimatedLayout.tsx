@@ -84,7 +84,7 @@ export default function AuthAnimatedLayout() {
   }, [layoutWords]);
 
   return (
-    <ul className="absolute w-full h-auto z-0">
+    <ul className="absolute w-full h-screen overflow-hidden z-0">
       {animatedWords.map((word, index) => {
         return (
           <AnimatedWord

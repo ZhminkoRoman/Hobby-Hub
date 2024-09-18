@@ -1,13 +1,13 @@
 "use client";
 
 import { useActionState } from "react";
-import Image from "next/image";
 import { signInWithProvider } from "../../actions/signIn";
 
 interface SignInProps {
   title: string;
   provider: string;
   subclass?: string;
+  color?: string;
 }
 
 const icons: { [key: string]: string } = {
@@ -20,6 +20,7 @@ export default function SignInButton({
   title,
   provider,
   subclass,
+  color,
 }: SignInProps) {
   const [error, action, isPending] = useActionState(signInWithProvider, null);
   return (
